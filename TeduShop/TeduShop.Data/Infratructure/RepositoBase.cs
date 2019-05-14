@@ -146,6 +146,17 @@ namespace TeduShop.Data.Infratructure
             return dataContext.Set<T>().Count<T>(predicate) > 0;
         }
 
+        public virtual T Delete(string id)
+        {
+            var entity = dbSet.Find(id);
+            return dbSet.Remove(entity);
+        }
+
+        public virtual T GetSingleById(string id)
+        {
+            return dbSet.Find(id);
+        }
+
         #endregion Implementation
     }
 }

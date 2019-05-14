@@ -8,9 +8,9 @@ using TeduShop.Model.Models;
 
 namespace TeduShop.Data.Repositoris
 {
-    public interface IOrderDetail : IRepository<OrderDetail> { }
+    public interface IOrderDetailRepository : IRepository<OrderDetail> { }
 
-    public class OrderDetailRepository : RepositoryBase<OrderDetail>, IOrderDetail
+    public class OrderDetailRepository : RepositoryBase<OrderDetail>, IOrderDetailRepository
     {
         public OrderDetailRepository(IDbFactory dbFactory) : base(dbFactory)
         {
