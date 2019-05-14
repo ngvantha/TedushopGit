@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TeduShop.Data
+namespace TeduShop.Data.Infratructure
 {
-    public class Class1
+    public interface IDbFactory: IDisposable
     {
+        TeduShopDbContext Init();
     }
 }
