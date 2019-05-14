@@ -1,0 +1,14 @@
+﻿using TeduShop.Data.Infratructure;
+using TeduShop.Model.Models;
+
+namespace TeduShop.Data.Repositoris
+{
+    public interface IMenuRepository : IRepository<Menu> { }
+
+    public class MenuRepository : RepositoryBase<Menu>, IMenuRepository
+    {
+        public MenuRepository(IDbFactory dbFactory) : base(dbFactory)
+        {
+        }
+    }
+}

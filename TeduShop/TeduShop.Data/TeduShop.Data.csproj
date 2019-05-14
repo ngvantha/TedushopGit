@@ -55,7 +55,29 @@
     <Compile Include="Infratructure\IUnitOfWork.cs" />
     <Compile Include="Infratructure\RepositoBase.cs" />
     <Compile Include="Infratructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201905140851302_InitialDb.cs" />
+    <Compile Include="Migrations\201905140851302_InitialDb.Designer.cs">
+      <DependentUpon>201905140851302_InitialDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositoris\FooterRepository.cs" />
+    <Compile Include="Repositoris\MenuGroupRepository.cs" />
+    <Compile Include="Repositoris\MenuRepository.cs" />
+    <Compile Include="Repositoris\OrderDetailRepository.cs" />
+    <Compile Include="Repositoris\OrderRepository.cs" />
+    <Compile Include="Repositoris\PageRepository.cs" />
+    <Compile Include="Repositoris\PostCategoryRepository.cs" />
+    <Compile Include="Repositoris\PostRepository.cs" />
+    <Compile Include="Repositoris\PostTagRepository.cs" />
+    <Compile Include="Repositoris\ProductCategoryRepository.cs" />
+    <Compile Include="Repositoris\ProductRepository.cs" />
+    <Compile Include="Repositoris\ProductTagRepository.cs" />
+    <Compile Include="Repositoris\SlideRepository.cs" />
+    <Compile Include="Repositoris\SupportOnlineRepository.cs" />
+    <Compile Include="Repositoris\SystemConfigRepository.cs" />
+    <Compile Include="Repositoris\TagRepository.cs" />
+    <Compile Include="Repositoris\VisitorStatisticRepository.cs" />
     <Compile Include="TeduShopDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,7 +95,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositoris\" />
+    <EmbeddedResource Include="Migrations\201905140851302_InitialDb.resx">
+      <DependentUpon>201905140851302_InitialDb.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
