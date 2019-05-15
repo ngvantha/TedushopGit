@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
+using Microsoft.Owin.Security.DataProtection;
 using Owin;
 using System.Reflection;
 using System.Web;
@@ -10,6 +12,7 @@ using System.Web.Mvc;
 using TeduShop.Data;
 using TeduShop.Data.Infratructure;
 using TeduShop.Data.Repositoris;
+using TeduShop.Model.Models;
 using TeduShop.Service;
 
 [assembly: OwinStartup(typeof(TeduShop.Web.App_Start.Startup))]
@@ -22,22 +25,22 @@ namespace TeduShop.Web.App_Start
             public void Configuration(IAppBuilder app)
             {
                 ConfigAutofac(app);
-                //ConfigureAuth(app);
+                ConfigureAuth(app);
             }
 
             private void ConfigAutofac(IAppBuilder app)
             {
                 var builder = new ContainerBuilder();
                 builder.RegisterControllers(Assembly.GetExecutingAssembly());
-                //Asp.net Identity Account
-                //builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
-                //builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
-                //builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
-                //builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
-                //builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
+            //Asp.net Identity Account
+            builder.RegisterType<ApplicationUserStore>().As<IUserStore<ApplicationUser>>().InstancePerRequest();
+            builder.RegisterType<ApplicationUserManager>().AsSelf().InstancePerRequest();
+            builder.RegisterType<ApplicationSignInManager>().AsSelf().InstancePerRequest();
+            builder.Register(c => HttpContext.Current.GetOwinContext().Authentication).InstancePerRequest();
+            builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
-                // Register your Web API controllers.
-                builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //Register WebApi Controllers
+            // Register your Web API controllers.
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //Register WebApi Controllers
 
                 builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
 
