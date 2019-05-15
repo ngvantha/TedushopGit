@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ErrorService.cs" />
     <Compile Include="FooterService.cs" />
     <Compile Include="MenuGroupService.cs" />
     <Compile Include="MenuService.cs" />
