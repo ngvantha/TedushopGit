@@ -15,7 +15,7 @@ namespace TeduShop.Service
         void Delete(int id);
         void Update(Tag tag);
         IEnumerable<Tag> GetAll();
-        Tag GetById(int id);
+        Tag GetById(string id);
         void SaveChange();
     }
     public class TagService: ITagService
@@ -30,32 +30,32 @@ namespace TeduShop.Service
 
         public void Add(Tag tag)
         {
-            throw new NotImplementedException();
+            _tagRepository.Add(tag);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _tagRepository.Delete(id);
         }
 
         public IEnumerable<Tag> GetAll()
         {
-            throw new NotImplementedException();
+            return _tagRepository.GetAll();
         }
 
-        public Tag GetById(int id)
+        public Tag GetById(string id)
         {
-            throw new NotImplementedException();
+            return _tagRepository.GetSingleById(id);
         }
 
         public void SaveChange()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
 
         public void Update(Tag tag)
         {
-            throw new NotImplementedException();
+            _tagRepository.Update(tag);
         }
     }
 }

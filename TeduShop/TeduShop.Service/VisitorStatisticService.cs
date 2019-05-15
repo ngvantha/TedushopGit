@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TeduShop.Data.Infratructure;
 using TeduShop.Data.Repositoris;
 using TeduShop.Model.Models;
@@ -12,16 +8,23 @@ namespace TeduShop.Service
     public interface IVisitorStatisticService
     {
         void Add(VisitorStatistic visitorStatistic);
+
         void Delete(int id);
+
         void Update(VisitorStatistic visitorStatistic);
+
         IEnumerable<VisitorStatistic> GetAll();
+
         VisitorStatistic GetById(int id);
+
         void SaveChange();
     }
-    public class VisitorStatisticService: IVisitorStatisticService
+
+    public class VisitorStatisticService : IVisitorStatisticService
     {
         private IVisitorStatisticRepository _visitorStatisticRepository;
         private IUnitOfWork _unitOfWork;
+
         public VisitorStatisticService(IVisitorStatisticRepository visitorStatisticRepository, IUnitOfWork unitOfWork)
         {
             this._visitorStatisticRepository = visitorStatisticRepository;
@@ -30,32 +33,32 @@ namespace TeduShop.Service
 
         public void Add(VisitorStatistic visitorStatistic)
         {
-            throw new NotImplementedException();
+            _visitorStatisticRepository.Add(visitorStatistic);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _visitorStatisticRepository.Delete(id);
         }
 
         public IEnumerable<VisitorStatistic> GetAll()
         {
-            throw new NotImplementedException();
+            return _visitorStatisticRepository.GetAll();
         }
 
         public VisitorStatistic GetById(int id)
         {
-            throw new NotImplementedException();
+            return _visitorStatisticRepository.GetSingleById(id);
         }
 
         public void SaveChange()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
 
         public void Update(VisitorStatistic visitorStatistic)
         {
-            throw new NotImplementedException();
+            _visitorStatisticRepository.Update(visitorStatistic);
         }
     }
 }

@@ -29,32 +29,32 @@ namespace TeduShop.Service
         }
         public void Add(Slide slide)
         {
-            throw new NotImplementedException();
+            _slideRepository.Add(slide);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _slideRepository.Delete(id);
         }
 
         public IEnumerable<Slide> GetAll()
         {
-            throw new NotImplementedException();
+            return _slideRepository.GetAll();
         }
 
         public Slide GetById(int id)
         {
-            throw new NotImplementedException();
+            return _slideRepository.GetSingleById(id);
         }
 
         public void SaveChange()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
 
         public void Update(Slide slide)
         {
-            throw new NotImplementedException();
+            _slideRepository.Update(slide);
         }
     }
 }

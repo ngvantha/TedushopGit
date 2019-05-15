@@ -12,7 +12,8 @@ namespace TeduShop.Model.Models
     public class VisitorStatistic
     {
         [Key]
-        public Guid ID { set; get; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ID{ set; get; }
 
         [Required]
         public DateTime VisiteDate { set; get; }

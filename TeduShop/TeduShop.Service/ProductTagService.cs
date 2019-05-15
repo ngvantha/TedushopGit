@@ -29,32 +29,32 @@ namespace TeduShop.Service
         }
         public void Add(ProductTag productTag)
         {
-            throw new NotImplementedException();
+            _productTagRepository.Add(productTag);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _productTagRepository.Delete(id);
         }
 
         public IEnumerable<ProductTag> GetAll()
         {
-            throw new NotImplementedException();
+            return _productTagRepository.GetAll();
         }
 
         public ProductTag GetById(int id)
         {
-            throw new NotImplementedException();
+            return _productTagRepository.GetSingleById(id);
         }
 
         public void SaveChange()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
 
         public void Update(ProductTag productTag)
         {
-            throw new NotImplementedException();
+            _productTagRepository.Update(productTag);
         }
     }
 }

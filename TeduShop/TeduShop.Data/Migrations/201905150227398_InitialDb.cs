@@ -271,7 +271,7 @@ namespace TeduShop.Data.Migrations
                 "dbo.VisitorStatistic",
                 c => new
                     {
-                        ID = c.Guid(nullable: false),
+                        ID = c.Int(nullable: false, identity: true),
                         VisiteDate = c.DateTime(nullable: false),
                         IPAddress = c.String(maxLength: 50),
                     })

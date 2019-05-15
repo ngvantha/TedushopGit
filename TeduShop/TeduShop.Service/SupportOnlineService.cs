@@ -29,32 +29,32 @@ namespace TeduShop.Service
         }
         public void Add(SupportOnline supportOnline)
         {
-            throw new NotImplementedException();
+            _supportOnlineRepository.Add(supportOnline);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _supportOnlineRepository.Delete(id);
         }
 
         public IEnumerable<SupportOnline> GetAll()
         {
-            throw new NotImplementedException();
+            return _supportOnlineRepository.GetAll();
         }
 
         public SupportOnline GetById(int id)
         {
-            throw new NotImplementedException();
+            return _supportOnlineRepository.GetSingleById(id);
         }
 
         public void SaveChange()
         {
-            throw new NotImplementedException();
+            _unitOfWork.Commit();
         }
 
         public void Update(SupportOnline supportOnline)
         {
-            throw new NotImplementedException();
+            _supportOnlineRepository.Update(supportOnline);
         }
     }
 }
