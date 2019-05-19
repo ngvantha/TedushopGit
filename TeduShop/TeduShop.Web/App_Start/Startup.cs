@@ -40,7 +40,7 @@ namespace TeduShop.Web.App_Start
             builder.Register(c => app.GetDataProtectionProvider()).InstancePerRequest();
 
             // Register your Web API controllers.
-            builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //Register WebApi Controllers
+                builder.RegisterApiControllers(Assembly.GetExecutingAssembly()); //Register WebApi Controllers
 
                 builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
 
@@ -59,24 +59,6 @@ namespace TeduShop.Web.App_Start
 
                 GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container); //Set the WebApi DependencyResolver
 
-                //var builder = new ContainerBuilder();
-                //builder.RegisterControllers(Assembly.GetExecutingAssembly());
-                //builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
-                //builder.RegisterType<UnitofWork>().As<IUnitofWork>().InstancePerRequest();
-                //builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
-                //builder.RegisterType<TeduShopDbContext>().AsSelf().InstancePerRequest();
-                ////Repository
-                //builder.RegisterAssemblyTypes(typeof(PostCategoryRepository).Assembly)
-                //    .Where(t => t.Name.EndsWith("Repository"))
-                //    .AsImplementedInterfaces().InstancePerRequest();
-                ////Service
-                //builder.RegisterAssemblyTypes(typeof(PostCategoryService).Assembly)
-                //    .Where(t => t.Name.EndsWith("Service"))
-                //    .AsImplementedInterfaces().InstancePerRequest();
-                ////assign to Autofac
-                //Autofac.IContainer container = builder.Build();
-                //DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-                //GlobalConfiguration.Configuration.DependencyResolver = new AutofacWebApiDependencyResolver((IContainer)container);
             }
         }
     
